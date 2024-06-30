@@ -22,7 +22,9 @@ var dataLoaded = false;
 fileInput.addEventListener("change", function (e) {
   var file = fileInput.files[0];
   var textType = /text.*/;
-
+  divisors = [];
+  parameters = [];
+  data = [];
   if (file.type.match(textType)) {
     var reader = new FileReader();
 
@@ -44,18 +46,18 @@ fileInput.addEventListener("change", function (e) {
             break;
           case 1:
             parameters = lines[line].replace("\r", "").split("\t");
+            parameters = parameters.slice(4, parameters.length);
             break;
           default:
             data.push(lines[line].replace("\r", "").split("\t"));
             break;
         }
       }
-
       dataLoaded = true;
       date.textContent = "Date of data collection: " + data[0][0];
       version.textContent = "Version(43001): " + data[0][3];
       versionR.textContent = "R-version(44331): " + data[0][4];
-
+      toggleChart();
       alert("Pump Data loaded!");
     };
 
@@ -129,6 +131,10 @@ var chartOptions = {
       fontColor: "black",
     },
   },
+  spanGaps: true, // enable for all datasets
+  animation: false,
+  spanGaps: true, // enable for all datasets
+
   labels: {
     boxWidth: 80,
     fontColor: "black",
@@ -187,6 +193,9 @@ function toggleChart() {
         fontColor: "black",
       },
     },
+    animation: false,
+    spanGaps: true, // enable for all datasets
+    showLine: false,
     responsive: true,
     title: {
       display: true,
@@ -225,18 +234,20 @@ btnPlot.addEventListener("click", function () {
 
     var datasetPlot = [];
     var dataCurrent = [];
-    parameters = parameters.slice(4, parameters.length);
+
     var index = 0;
+    divisors = divisors.slice(4, divisors.length).map(Number);
 
     for (var counter2 = 0; counter2 < parameters.length; counter2++) {
       dataCurrent = [];
       for (var counter3 = 0; counter3 < timestamp.length; counter3++) {
-        dataCurrent.push(dataset[counter3][index]);
+        dataCurrent.push(dataset[counter3][index] / divisors[counter2]);
       }
-
+      console.log(parameters[0]);
       datasetPlot[counter2] = {
         label: parameters[counter2],
         data: dataCurrent,
+        hidden: true,
         fill: false,
         borderColor: getRandomColor(),
         tension: 0.1,
