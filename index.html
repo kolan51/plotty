@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="https://logovectordl.com/wp-content/uploads/2021/05/nibe-energy-systems-logo-vector.png" type="image/icon type">
+
+    <title>Heat Pump Data plot</title>
+  </head>
+  <body>
+    <main>
+      <div class="first">    <h1 class="title">Heat Pump Data</h1>
+      </div>
+      <div class="second">
+        
+        <div class="fileInput">🗃️<input type="file" id="fileInput"></div>
+        <div class="space"></div>
+        <button class="btn">📈 Plot Data</button>     </div>
+      
+      <br></br>
+      <hr>
+      <h2 class="date">Date of data collection: </h2>
+      <hr>
+      <h2 class="version">Version(43001): </h2>
+      <hr>
+      <h2 class="rVersion">R-version(44331): </h2>
+      <hr>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@0.7.7"></script>
+      <canvas id="heatPumpChart" width="400" height="150"></canvas>
+      <script type="text/javascript" src="./plot.js"></script>
+    </main>
+  </body>
+</html>

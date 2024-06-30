@@ -1,0 +1,44 @@
+* {
+  background-color: lightgray;
+  margin: 10;
+  padding: 5;
+  box-sizing: inherit;
+}
+.first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.second {
+  padding: 20;
+  display: flex;
+  justify-content: center;
+}
+
+.space {
+  width: 500px;
+}
+
+.title {
+  text-shadow: 1px 1px 1px red;
+  color: black;
+  margin: 20;
+  padding: 20;
+}
+
+.fileInput {
+  width: 350px;
+  max-width: 100%;
+  color: #444;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid #555;
+}
+
+.btn {
+  width: 350px;
+  max-width: 100%;
+  background-color: yellow;
+}
