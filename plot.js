@@ -226,7 +226,7 @@ function init() {
     },
     animation: false,
     spanGaps: true, // enable for all datasets
-    showLine: false,
+    showLine: true,
     responsive: true,
     title: {
       display: true,
@@ -297,7 +297,7 @@ function toggleChart() {
     },
     animation: false,
     spanGaps: true, // enable for all datasets
-    showLine: false,
+    showLine: true,
     responsive: true,
     title: {
       display: true,
