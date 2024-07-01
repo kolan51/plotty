@@ -17,11 +17,19 @@
   justify-content: center;
 }
 
+.third {
+  padding: 20;
+  display: flex;
+  justify-content: space-around;
+}
+
 .space {
   width: 500px;
 }
 
 .title {
+  font-style: italic;
+  font-weight: bolder;
   text-shadow: 1px 1px 1px red;
   color: black;
   margin: 20;
@@ -31,14 +39,19 @@
 .fileInput {
   width: 350px;
   max-width: 100%;
-  color: #444;
+  color: black;
   padding: 5px;
   border-radius: 10px;
-  border: 1px solid #555;
+  border: 3px solid #555;
+  background-color: rgba(19, 148, 223, 0.548);
 }
 
 .btn {
   width: 350px;
   max-width: 100%;
-  background-color: yellow;
+  color: black;
+  padding: 5px;
+  border-radius: 10px;
+  border: 3px solid #555;
+  background-color: rgba(19, 148, 223, 0.548);
 }

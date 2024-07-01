@@ -140,18 +140,36 @@ var chartOptions = {
   },
   scales: {
     x: {
+      display: true,
       title: {
         display: true,
-        text: "Month",
+        text: "Timestamp",
+        color: "#911",
+        font: {
+          family: "Comic Sans MS",
+          size: 20,
+          weight: "bold",
+          lineHeight: 1.2,
+        },
+        padding: { top: 20, left: 0, right: 0, bottom: 0 },
       },
     },
     y: {
+      display: true,
       title: {
         display: true,
         text: "Value",
+        color: "#191",
+        font: {
+          family: "Times",
+          size: 20,
+          style: "normal",
+          lineHeight: 1.2,
+        },
+        padding: { top: 30, left: 0, right: 0, bottom: 0 },
       },
-      min: -300,
-      max: 300,
+      min: min,
+      max: max,
       ticks: {
         // forces step size to be 50 units
         stepSize: 50,
@@ -204,17 +222,36 @@ function init() {
         fontColor: "black",
       },
     },
+
     scales: {
       x: {
+        display: true,
         title: {
           display: true,
-          text: "Month",
+          text: "Timestamp",
+          color: "#911",
+          font: {
+            family: "Comic Sans MS",
+            size: 20,
+            weight: "bold",
+            lineHeight: 1.2,
+          },
+          padding: { top: 20, left: 0, right: 0, bottom: 0 },
         },
       },
       y: {
+        display: true,
         title: {
           display: true,
           text: "Value",
+          color: "#191",
+          font: {
+            family: "Times",
+            size: 20,
+            style: "normal",
+            lineHeight: 1.2,
+          },
+          padding: { top: 30, left: 0, right: 0, bottom: 0 },
         },
         min: min,
         max: max,
@@ -236,8 +273,27 @@ function init() {
       boxWidth: 80,
       fontColor: "black",
     },
+    x: {
+      display: true,
+      title: {
+        display: true,
+        text: "Timestamp",
+        color: "#911",
+        font: {
+          family: "Comic Sans MS",
+          size: 20,
+          weight: "bold",
+          lineHeight: 1.2,
+        },
+        padding: { top: 20, left: 0, right: 0, bottom: 0 },
+      },
+    },
     plugins: {
       zoom: {
+        pan: {
+          enabled: true,
+          mode: "xy",
+        },
         zoom: {
           wheel: {
             enabled: true,
@@ -277,15 +333,33 @@ function toggleChart() {
     },
     scales: {
       x: {
+        display: true,
         title: {
           display: true,
-          text: "Month",
+          text: "Timestamp",
+          color: "#911",
+          font: {
+            family: "Comic Sans MS",
+            size: 20,
+            weight: "bold",
+            lineHeight: 1.2,
+          },
+          padding: { top: 20, left: 0, right: 0, bottom: 0 },
         },
       },
       y: {
+        display: true,
         title: {
           display: true,
           text: "Value",
+          color: "#191",
+          font: {
+            family: "Times",
+            size: 20,
+            style: "normal",
+            lineHeight: 1.2,
+          },
+          padding: { top: 30, left: 0, right: 0, bottom: 0 },
         },
         min: min,
         max: max,

@@ -11,8 +11,9 @@
   </head>
   <body>
     <main>
-      <div class="first">    <h1 class="title">Heat Pump Data</h1>
+      <div class="first">    <h1 class="title">NIBE Heat Pump Data</h1>
       </div>
+      
       <div class="second">
         
         <div class="fileInput">🗃️<input type="file" id="fileInput"></div>
@@ -21,14 +22,16 @@
       
       <br></br>
       <hr>
-      <h2 class="date">Date of data collection: </h2>
-      <hr>
-      <h2 class="version">Version(43001): </h2>
-      <hr>
-      <h2 class="rVersion">R-version(44331): </h2>
+
+      <div class="third"> 
+        <h2 class="date">Date of data collection: </h2>
+        <h2 class="version">Version(43001): </h2>
+        <h2 class="rVersion">R-version(44331): </h2>
+      </div>
       <hr>
 
       <script src="https://cdn.jsdelivr.net/npm/chart.js@v4.2.1"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1"></script>
       <canvas id="heatPumpChart" width="400" height="150"></canvas>
       <script type="text/javascript" src="./plot.js"></script>
