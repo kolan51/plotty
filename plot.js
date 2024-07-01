@@ -3,8 +3,8 @@
 var speedCanvas = document.getElementById("heatPumpChart");
 const btnPlot = document.querySelector(".btn");
 
-Chart.defaults.global.defaultFontFamily = "Lato";
-Chart.defaults.global.defaultFontSize = 18;
+// Chart.defaults.global.defaultFontFamily = "Lato";
+// Chart.defaults.global.defaultFontSize = 18;
 
 //* Reads file from local storage inside project
 var fileInput = document.getElementById("fileInput");
@@ -94,7 +94,6 @@ const zoomOptions = {
 };
 
 const scaleOpts = {
-  reverse: true,
   ticks: {
     callback: (val, index, ticks) =>
       index === 0 || index === ticks.length - 1 ? null : val,
@@ -139,19 +138,42 @@ var chartOptions = {
     boxWidth: 80,
     fontColor: "black",
   },
-
+  scales: {
+    x: {
+      title: {
+        display: true,
+        text: "Month",
+      },
+    },
+    y: {
+      title: {
+        display: true,
+        text: "Value",
+      },
+      min: -300,
+      max: 300,
+      ticks: {
+        // forces step size to be 50 units
+        stepSize: 50,
+      },
+    },
+  },
   responsive: true,
   title: {
     display: true,
     text: "Nibe Logs",
   },
-  scales: scales,
   plugins: {
-    zoom: zoomOptions,
-    title: {
-      display: true,
-      position: "bottom",
-      text: (ctx) => "Zoom: " + zoomStatus(ctx.chart) + ", Pan: " + panStatus(),
+    zoom: {
+      zoom: {
+        wheel: {
+          enabled: true,
+        },
+        pinch: {
+          enabled: true,
+        },
+        mode: "xy",
+      },
     },
   },
   onClick(e) {
@@ -167,7 +189,67 @@ var lineChart = new Chart(speedCanvas, {
 
 init();
 
+var max = 300;
+var min = -300;
+
 function init() {
+  lineChart.destroy();
+
+  console.log(min, max);
+  chartOptions = {
+    legend: {
+      display: true,
+      position: "top",
+      labels: {
+        fontColor: "black",
+      },
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: "Month",
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Value",
+        },
+        min: min,
+        max: max,
+        ticks: {
+          // forces step size to be 50 units
+          stepSize: 50,
+        },
+      },
+    },
+    animation: false,
+    spanGaps: true, // enable for all datasets
+    showLine: false,
+    responsive: true,
+    title: {
+      display: true,
+      text: "Nibe Logs",
+    },
+    labels: {
+      boxWidth: 80,
+      fontColor: "black",
+    },
+    plugins: {
+      zoom: {
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true,
+          },
+          mode: "xy",
+        },
+      },
+    },
+  };
   // Chart declaration:
   lineChart = new Chart(speedCanvas, {
     type: "line",
@@ -193,6 +275,26 @@ function toggleChart() {
         fontColor: "black",
       },
     },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: "Month",
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Value",
+        },
+        min: min,
+        max: max,
+        ticks: {
+          // forces step size to be 50 units
+          stepSize: 50,
+        },
+      },
+    },
     animation: false,
     spanGaps: true, // enable for all datasets
     showLine: false,
@@ -205,14 +307,17 @@ function toggleChart() {
       boxWidth: 80,
       fontColor: "black",
     },
-    scales: scales,
     plugins: {
-      zoom: zoomOptions,
-      title: {
-        display: true,
-        position: "bottom",
-        text: (ctx) =>
-          "Zoom: " + zoomStatus(ctx.chart) + ", Pan: " + panStatus(),
+      zoom: {
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true,
+          },
+          mode: "xy",
+        },
       },
     },
   };
